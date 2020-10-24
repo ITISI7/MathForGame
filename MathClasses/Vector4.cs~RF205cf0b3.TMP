@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MathClasses
+{
+    public class Vector4
+    {
+        public float x, y, z, w;
+
+        public Vector4()
+        {
+            x = 0;
+            y = 0;
+            z = 0;
+            w = 0;
+        }
+
+        public Vector4(float x, float y, float z, float w)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.w = w;
+        }
+
+        public static Vector4 VectorTranslate(Vector4 point, Vector4 vec)
+        {
+            Vector4 retVal = new Vector4();
+            retVal.x = point.x + vec.x;
+            retVal.y = point.y + vec.y;
+            retVal.z = point.z + vec.z;
+            retVal.w = point.w + vec.w;
+            return retVal;
+        }
+
+        public static Vector4 PointDiffrence(Vector4 lhs, Vector4 rhs)
+        {
+            Vector4 retVal = new Vector4();
+            retVal.x = lhs.x - rhs.x;
+            retVal.y = lhs.y - rhs.y;
+            retVal.z = lhs.z - rhs.z;
+            retVal.w = lhs.w - rhs.w;
+            return retVal;
+        }
+
+        public static Vector4 operator +(Vector4 lhs, Vector4 rhs)
+        {
+            return new Vector4(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w);
+        }
+
+        public static Vector4 operator -(Vector4 lhs, Vector4 rhs)
+        {
+            return new Vector4(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - lhs.w);
+        }
+        public static Vector4 scaling (Vector4 vec, float scale)
+        {
+            Vector4 retval = new Vector4();
+            retval.x = vec.x * scale.x;
+            retval.y = vec.y * scale.y;
+            retval.z = vec.z * scale.z;
+            retval.w = vec.w * scale.w;
+            return retval;
+        }
+
+    }
+}

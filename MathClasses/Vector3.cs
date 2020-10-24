@@ -1,0 +1,103 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MathClasses
+{
+    public class Vector3
+    {
+        public float x, y, z;
+
+        public Vector3()
+        {
+            x = 0;
+            y = 0;
+            z = 0;
+        }
+
+        public Vector3(float x, float y, float z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        public static Vector3 VectorTranslate(Vector3 point, Vector3 vec)
+        {
+            Vector3 retVal = new Vector3();
+            retVal.x = point.x + vec.x;
+            retVal.y = point.y + vec.y;
+            retVal.z = point.z + vec.z;
+            return retVal;
+        }
+
+        public static Vector3 PointDiffrence(Vector3 lhs, Vector3 rhs)
+        {
+            Vector3 retVal = new Vector3();
+            retVal.x = lhs.x - rhs.x;
+            retVal.y = lhs.y - rhs.y;
+            retVal.z = lhs.z - rhs.z;
+            return retVal;
+        }
+
+        public static Vector3 operator +(Vector3 lhs, Vector3 rhs)
+        {
+            return new Vector3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z);
+        }
+
+        public static Vector3 operator -(Vector3 lhs, Vector3 rhs)
+        {
+            return new Vector3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z);
+        }
+        public static Vector3 Scaling (Vector3 vec, float scale)
+        {
+            Vector3 retval = new Vector3();
+            retval.x = vec.x * scale;
+            retval.y = vec.y * scale;
+            retval.z = vec.z * scale;
+            return retval;
+        }
+
+        public static Vector3 PreScaling (float scale, Vector3 vec)
+        {
+            Vector3 retval = new Vector3();
+            retval.x = scale * vec.x;
+            retval.y = scale * vec.y;
+            retval.z = scale * vec.z;
+            return retval;
+
+        }
+        public static float Magnitude(Vector3 vec)
+        {
+            return (float)Math.Sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
+            
+            
+            
+        }
+        public static Vector3 Normalise(Vector3 vec)
+        {
+            Vector3 retVal = new Vector3();
+            retVal.x = vec.x / vec.x;
+            retVal.y = vec.y / vec.y;
+            retVal.y = vec.z / vec.z;
+            return retVal;
+
+        }
+        public static Vector3 Cross(Vector3 lhs, Vector3 rhs)
+        {
+            return new Vector3(
+            lhs.y * rhs.z - lhs.z * rhs.y,
+            lhs.z * rhs.x - lhs.x * rhs.z,
+            lhs.x * rhs.y - lhs.y * rhs.x);
+        }
+        public static float Dot(Vector3 lhs, Vector3 rhs)
+        {
+            return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+
+        }
+
+    }
+}
