@@ -109,17 +109,6 @@ namespace MathClasses
             return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * lhs.w;
 
         }
-        public static Vector4 VectorMatrixtransform(Matrix4 matrix, Vector4 vector)
-        {
-            Vector4 retVal = new Vector4();
-            retVal.x = matrix.m1 * vector.x + matrix.m2 * vector.y + matrix.m3 * vector.z + matrix.m4 * vector.w;
-            retVal.y = matrix.m5 * vector.x + matrix.m6 * vector.y + matrix.m7 * vector.z + matrix.m8 * vector.w;
-            retVal.z = matrix.m9 * vector.x + matrix.m10 * vector.y + matrix.m11 * vector.z + matrix.m12 * vector.w;
-            retVal.w = matrix.m13 * vector.x + matrix.m14 * vector.y + matrix.m15 * vector.z + matrix.m16 * vector.w;
-
-
-            return retVal;
-        }
 
     }
 }

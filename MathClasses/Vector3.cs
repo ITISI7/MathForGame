@@ -98,7 +98,17 @@ namespace MathClasses
             return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 
         }
-        
+        public static Vector3 VectorMatrixtransform(Matrix3 matrix, Vector3 vector)
+        {
+            Vector3 retVal = new Vector3();
+            retVal.x = matrix.m1 * vector.x + matrix.m2 * vector.y + matrix.m3 * vector.z;
+            retVal.y = matrix.m4 * vector.x + matrix.m5 * vector.y + matrix.m6 * vector.z;
+            retVal.z = matrix.m7 * vector.x + matrix.m8 * vector.y + matrix.m9 * vector.z;
+
+
+            return retVal;
+        }
+
 
     }
 }
