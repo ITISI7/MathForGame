@@ -79,8 +79,26 @@ namespace MathClasses
 
             return retVal;
 
-
         }
+        public static Matrix3 VectorMatrixtransform(Matrix3 matrix, Vector3 vector)
+        {
+            Matrix3 retVal = new Matrix3();
+            retVal.m1 = matrix.m1 * vector.x;
+            retVal.m4 = matrix.m4 * vector.y;
+            retVal.m7 = matrix.m7 * vector.z;
+
+            retVal.m2 = matrix.m2 * vector.x;
+            retVal.m5 = matrix.m5 * vector.y;
+            retVal.m8 = matrix.m8 * vector.z;
+
+            retVal.m3 = matrix.m3 * vector.x;
+            retVal.m6 = matrix.m6 * vector.y;
+            retVal.m9 = matrix.m9 * vector.z;
+
+            return retVal;
+        }
+
+
 
         public void SetRotateX(float xRadians)
         {
@@ -94,7 +112,7 @@ namespace MathClasses
 
             m7 = 0;
             m8 = (float)Math.Sin(xRadians);
-            m9 = (float)Math.Cos(xRadians);
+            m9 = (float)-Math.Cos(xRadians);
 
         }
 
@@ -102,7 +120,7 @@ namespace MathClasses
         {
             m1 = (float)Math.Cos(yRadians);
             m2 = 0;
-            m3 = (float)Math.Sin(yRadians);
+            m3 = (float)-Math.Sin(yRadians);
 
             m4 = 0;
             m5 = 1;
@@ -119,7 +137,7 @@ namespace MathClasses
             m2 = (float)Math.Sin(zRadians);
             m3 = 0;
 
-            m4 = (float)Math.Sin(zRadians);
+            m4 = (float)-Math.Sin(zRadians);
             m5 = (float)Math.Cos(zRadians);
             m6 = 0;
 
@@ -151,6 +169,23 @@ namespace MathClasses
             rot.SetRotateZ(zRadians);
 
             Set(this * rot);
+        }
+        public static Matrix3 MatrixTransform(Matrix3 lhs, Matrix3 rhs)
+        {
+            Matrix3 retVal = new Matrix3();
+            retVal.m1 = lhs.m1 * rhs.m1 + lhs.m4 * rhs.m2 + lhs.m7 * rhs.m3;
+            retVal.m4 = lhs.m1 * rhs.m4 + lhs.m4 * rhs.m5 + lhs.m7 * rhs.m6;
+            retVal.m7 = lhs.m1 * rhs.m7 + lhs.m4 * rhs.m8 + lhs.m7 * rhs.m9;
+
+            retVal.m2 = lhs.m2 * rhs.m1 + lhs.m5 * rhs.m2 + lhs.m8 * rhs.m3;
+            retVal.m5 = lhs.m2 * rhs.m4 + lhs.m5 * rhs.m5 + lhs.m8 * rhs.m6;
+            retVal.m7 = lhs.m2 * rhs.m7 + lhs.m5 * rhs.m8 + lhs.m8 * rhs.m9;
+
+            retVal.m3 = lhs.m3 * rhs.m1 + lhs.m6 * rhs.m2 + lhs.m9 * rhs.m3;
+            retVal.m6 = lhs.m3 * rhs.m4 + lhs.m6 * rhs.m5 + lhs.m9 * rhs.m6;
+            retVal.m9 = lhs.m3 * rhs.m7 + lhs.m6 * rhs.m8 + lhs.m9 * rhs.m9;
+
+            return retVal;
         }
     }
 

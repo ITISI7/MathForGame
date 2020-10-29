@@ -1,0 +1,7 @@
+C:\Users\7319d\Desktop\MathForGame-master\RaylibStarterCS\Project2D\bin\Debug\Project2D.exe.config
+C:\Users\7319d\Desktop\MathForGame-master\RaylibStarterCS\Project2D\bin\Debug\Project2D.exe
+C:\Users\7319d\Desktop\MathForGame-master\RaylibStarterCS\Project2D\bin\Debug\Project2D.pdb
+C:\Users\7319d\Desktop\MathForGame-master\RaylibStarterCS\Project2D\obj\Debug\Project2D.csprojAssemblyReference.cache
+C:\Users\7319d\Desktop\MathForGame-master\RaylibStarterCS\Project2D\obj\Debug\Project2D.csproj.CoreCompileInputs.cache
+C:\Users\7319d\Desktop\MathForGame-master\RaylibStarterCS\Project2D\obj\Debug\Project2D.exe
+C:\Users\7319d\Desktop\MathForGame-master\RaylibStarterCS\Project2D\obj\Debug\Project2D.pdb

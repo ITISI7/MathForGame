@@ -98,6 +98,7 @@ namespace MathClasses
             return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
 
         }
+        
 
     }
 }

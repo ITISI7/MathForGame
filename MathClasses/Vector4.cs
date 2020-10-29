@@ -92,6 +92,18 @@ namespace MathClasses
 
         }
 
+        public static Vector4 Cross(Vector4 lhs, Vector4 rhs)
+        {
+            return new Vector4(
+            lhs.z * rhs.w - lhs.w * rhs.z,
+            lhs.w * rhs.y - lhs.y * rhs.w,
+            lhs.x * rhs.z - lhs.z * rhs.x,
+            lhs.y * rhs.x - lhs.x * rhs.y);
+
+
+
+        }
+
         public static float Dot(Vector4 lhs, Vector4 rhs)
         {
             return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * lhs.w;

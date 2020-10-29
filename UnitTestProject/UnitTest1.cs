@@ -168,7 +168,7 @@ namespace UnitTestProject
         {
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4b = new Vector4(5, 3.99f, -12, 1);
-            Vector4 v4c = v4a.Cross(v4b);
+            Vector4 v4c = Vector4.Cross(v4a, v4b);
 
             Assert.IsTrue(compare(v4c, new Vector4(-2860.62011719f, 4472.00000000f, 295.01498413f, 0)));
         }
@@ -391,7 +391,6 @@ namespace UnitTestProject
                                       55, 44, 99, 1);
             
             Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
-
             Vector4 v4c = m4b * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(68.5f, -4.23f, 45, 1)));
         }

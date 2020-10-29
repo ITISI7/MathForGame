@@ -126,45 +126,69 @@ namespace MathClasses
             m1 = 1;
             m2 = 0;
             m3 = 0;
-
             m4 = 0;
-            m5 = (float)Math.Cos(xRadians);
-            m6 = (float)Math.Sin(xRadians);
 
-            m7 = 0;
-            m8 = (float)Math.Sin(xRadians);
-            m9 = (float)Math.Cos(xRadians);
+            m5 = 0;
+            m6 = (float)Math.Cos(xRadians);
+            m7 = (float)Math.Sin(xRadians);
+            m8 = 0;
+
+            m9 = 0;
+            m10 = (float)Math.Sin(xRadians);
+            m11 = (float)Math.Cos(xRadians);
+            m12 = 0;
+
+            m13 = 0;
+            m14 = 0;
+            m15 = 0;
+            m16 = 1;
 
         }
 
-        public void setRotateY(float yRadians)
+        public void SetRotateY(float yRadians)
         {
             m1 = (float)Math.Cos(yRadians);
             m2 = 0;
             m3 = (float)Math.Sin(yRadians);
-
             m4 = 0;
-            m5 = 1;
-            m6 = 0;
 
-            m7 = (float)Math.Sin(yRadians);
+            m5 = 0;
+            m6 = 1;
+            m7 = 0;
             m8 = 0;
-            m9 = (float)Math.Cos(yRadians);
+
+            m9 = (float)Math.Sin(yRadians);
+            m10 = 0;
+            m11 = (float)Math.Cos(yRadians);
+            m12 = 0;
+
+            m13 = 0;
+            m14 = 0;
+            m15 = 0;
+            m16 = 1;
 
         }
-        public void setRotateZ(float zRadians)
+        public void SetRotateZ(float zRadians)
         {
             m1 = (float)Math.Cos(zRadians);
             m2 = (float)Math.Sin(zRadians);
             m3 = 0;
+            m4 = 0;
 
-            m4 = (float)Math.Sin(zRadians);
-            m5 = (float)Math.Cos(zRadians);
-            m6 = 0;
-
+            m5 = (float)Math.Sin(zRadians);
+            m6 = (float)Math.Cos(zRadians);
             m7 = 0;
             m8 = 0;
-            m9 = 1;
+
+            m9 = 0;
+            m10 = 0;
+            m11 = 1;
+            m12 = 0;
+
+            m13 = 0;
+            m14 = 0;
+            m15 = 0;
+            m16 = 1;
 
         }
 
@@ -172,21 +196,21 @@ namespace MathClasses
 
         public void rotateX(float xRadians)
         {
-            Matrix3 rot = new Matrix3();
+            Matrix4 rot = new Matrix4();
             rot.SetRotateX(xRadians);
 
             Set(this * rot);
         }
         public void rotateY(float yRadians)
         {
-            Matrix3 rot = new Matrix3();
+            Matrix4 rot = new Matrix4();
             rot.setRotateY(yRadians);
 
             Set(this * rot);
         }
         public void rotateZ(float zRadians)
         {
-            Matrix3 rot = new Matrix3();
+            Matrix4 rot = new Matrix4();
             rot.setRotateZ(zRadians);
 
             Set(this * rot);
