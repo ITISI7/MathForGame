@@ -108,7 +108,7 @@ namespace UnitTestProject
         public void Vector4PostScale()
         {
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
-            Vector4 v4c = Vector4.Scaling(v4a, 4.89f);
+            Vector4 v3c = Vector4.Scaling(v4a, 4.89f);
             
 
             Assert.IsTrue(compare(new Vector4(66.0149993896f, -235.844696045f, 4215.1796875f, 0), v4c));
@@ -118,8 +118,8 @@ namespace UnitTestProject
         public void Vector3PreScale()
         {
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
-            Vector3 v3c = Vector3.PreScaling(0.256f, v3a);
-            
+            Vector3 v3c = 0.256f * v3a;
+
             Assert.IsTrue(compare(new Vector3(3.45600008965f, -12.3468809128f, 220.672012329f), v3c));
         }
 
@@ -127,8 +127,7 @@ namespace UnitTestProject
         public void Vector4PreScale()
         {
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
-            Vector4 v4c = Vector4.PreScaling(4.89f, v4a);
-            
+            Vector4 v4c = 4.89f * v4a;
 
             Assert.IsTrue(compare(new Vector4(66.0149993896f, -235.844696045f, 4215.1796875f, 0), v4c));
         }
@@ -138,8 +137,7 @@ namespace UnitTestProject
         {
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
             Vector3 v3b = new Vector3(5, 3.99f, -12);
-            float dot3 = Vector3.Dot(v3a, v3b);
-            
+            float dot3 = v3a.Dot(v3b);
 
             Assert.AreEqual(dot3, -10468.9375f, DEFAULT_TOLERANCE);
         }
@@ -149,8 +147,7 @@ namespace UnitTestProject
         {
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4b = new Vector4(5, 3.99f, -12, 1);
-            float dot4 = Vector4.Dot(v4a, v4b);
-            
+            float dot4 = v4a.Dot(v4b);
 
             Assert.AreEqual(dot4, -10468.9375f, DEFAULT_TOLERANCE);
         }
@@ -160,8 +157,7 @@ namespace UnitTestProject
         {
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
             Vector3 v3b = new Vector3(5, 3.99f, -12);
-            Vector3 v3c = Vector3.Cross(v3a, v3b);
-            
+            Vector3 v3c = v3a.Cross(v3b);
 
             Assert.IsTrue(compare(v3c, new Vector3(-2860.62011719f, 4472.00000000f, 295.01498413f)));
         }
@@ -171,8 +167,7 @@ namespace UnitTestProject
         {
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
             Vector4 v4b = new Vector4(5, 3.99f, -12, 1);
-            Vector4 v4c = Vector4.Cross(v4a, v4b);
-            
+            Vector4 v4c = v4a.Cross(v4b);
 
             Assert.IsTrue(compare(v4c, new Vector4(-2860.62011719f, 4472.00000000f, 295.01498413f, 0)));
         }
@@ -181,8 +176,8 @@ namespace UnitTestProject
         public void Vector3Magnitude()
         {
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
-            float mag3 = Vector3.Magnitude(v3a);
-            
+            float mag3 = v3a.Magnitude();
+
             Assert.AreEqual(mag3, 863.453735352f, DEFAULT_TOLERANCE);
         }
 
@@ -190,8 +185,7 @@ namespace UnitTestProject
         public void Vector4Magnitude()
         {
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
-            float mag4 = Vector4.Magnitude(v4a);
-            
+            float mag4 = v4a.Magnitude();
 
             Assert.AreEqual(mag4, 863.453735352f, DEFAULT_TOLERANCE);
         }
@@ -200,7 +194,7 @@ namespace UnitTestProject
         public void Vector3Normalise()
         {
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
-            Vector3.Normalise(v3a);
+            v3a.Normalize();
 
             Assert.IsTrue(compare(v3a, new Vector3(0.0156349f, -0.0558571f, 0.998316f)));
         }
@@ -209,8 +203,7 @@ namespace UnitTestProject
         public void Vector4Normalise()
         {
             Vector4 v4a = new Vector4(243, -48.23f, 862, 0);
-            Vector4.Normalise(v4a);
-            
+            v4a.Normalize();
 
             Assert.IsTrue(compare(v4a, new Vector4(0.270935f, -0.0537745f, 0.961094f, 0)));
         }
@@ -303,8 +296,7 @@ namespace UnitTestProject
             m3b.SetRotateY(1.76f);
 
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
-            Vector3 v3b = Vector3.VectorMatrixtransform(m3b, v3a);
-            
+            Vector3 v3b = m3b * v3a;
 
             // https://www.wolframalpha.com/input/?i=%7B+++++%7Bcos%281.76%29%2C+0%2C+-sin%281.76%29%7D%2C+++++%7B0%2C+1%2C+0%7D%2C+++++%7Bsin%281.76%29%2C+0%2C+cos%281.76%29%7D+%7D+*+%7B%7B13.5%7D%2C+%7B-48.23%7D%2C+%7B862%7D%7D
             Assert.IsTrue(compare(v3b,
@@ -319,8 +311,7 @@ namespace UnitTestProject
             m3c.SetRotateZ(9.62f);
 
             Vector3 v3a = new Vector3(13.5f, -48.23f, 862);
-            Vector3 v3c = Vector3.VectorMatrixtransform(m3c, v3a);
-            
+            Vector3 v3c = m3c * v3a;
 
             // https://www.wolframalpha.com/input/?i=%7B+%7Bcos%289.62%29%2C+sin%289.62%29%2C+0%7D%2C+%7B-sin%289.62%29%2C+cos%289.62%29%2C+0%7D%2C+%7B0%2C+0%2C+1%7D+%7D+*+%7B%7B13.5%7D%2C+%7B-48.23%7D%2C+%7B862%7D%7D
             Assert.IsTrue(compare(v3c,
@@ -334,8 +325,7 @@ namespace UnitTestProject
             m4b.SetRotateY(-2.6f);
 
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
-            Vector4 v4b = Vector4.VectorMatrixtransform(m4b, v4a);
-            
+            Vector4 v4b = m4b * v4a;
 
             Assert.IsTrue(compare(v4b,
                 new Vector4(432.79425f, -48.23f, -745.597351f, 0)));
@@ -348,8 +338,7 @@ namespace UnitTestProject
             m4c.SetRotateZ(0.72f);
 
             Vector4 v4a = new Vector4(13.5f, -48.23f, 862, 0);
-            Vector4.VectorMatrixtransform(m4c, v4a);
-            Vector4 v4b = Vector4.VectorMatrixtransform(m4c, v4a);
+            Vector4 v4b = m4c * v4a;
 
             Assert.IsTrue(compare(v4b,
                 new Vector4(-21.6527443f, -45.16128f, 862, 0)));
@@ -399,8 +388,8 @@ namespace UnitTestProject
                                       55, 44, 1);
 
             Vector3 v3a = new Vector3(13.5f, -48.23f, 1);
-            Vector3 v3b = Vector3.VectorMatrixtransform(m3b, v3a);
-            
+
+            Vector3 v3b = m3b * v3a;
 
             Assert.IsTrue(compare(v3b, new Vector3(68.5f, -4.23f, 1)));
         }
@@ -414,8 +403,8 @@ namespace UnitTestProject
             m3c.m7 = 55; m3c.m8 = 44; m3c.m9 = 1;
 
             Vector3 v3a = new Vector3(13.5f, -48.23f, 1);
-            Vector3 v3c = Vector3.VectorMatrixtransform(m3c, v3a);
 
+            Vector3 v3c = m3c * v3a;
 
             Assert.IsTrue(compare(v3c, new Vector3(8.061456f, 61.46871f, 1)));
         }
@@ -430,8 +419,8 @@ namespace UnitTestProject
                                       55, 44, 99, 1);
 
             Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
-            Vector4 v4c = Vector4.VectorMatrixtransform(m4b, v4a);
-            
+
+            Vector4 v4c = m4b * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(68.5f, -4.23f, 45, 1)));
         }
 
@@ -444,8 +433,8 @@ namespace UnitTestProject
             m4c.m13 = 55; m4c.m14 = 44; m4c.m15 = 99; m4c.m16 = 1;
 
             Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 1);
-            Vector4 v4c = Vector4.VectorMatrixtransform(m4c, v4a);
-            
+
+            Vector4 v4c = m4c * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(8.061456f, 61.468708f, 45, 1)));
         }
 
@@ -458,8 +447,8 @@ namespace UnitTestProject
                                       55, 44, 1);
 
             Vector3 v3a = new Vector3(13.5f, -48.23f, 0);
-            Vector3 v3b = Vector3.VectorMatrixtransform(m3b, v3a);
-            
+
+            Vector3 v3b = m3b * v3a;
 
             Assert.IsTrue(compare(v3b, new Vector3(13.5f, -48.23f, 0)));
         }
@@ -473,8 +462,8 @@ namespace UnitTestProject
             m3c.m7 = 55; m3c.m8 = 44; m3c.m9 = 1;
 
             Vector3 v3a = new Vector3(13.5f, -48.23f, 0);
-            Vector3 v3c = Vector3.VectorMatrixtransform(m3c, v3a);
-            
+
+            Vector3 v3c = m3c * v3a;
 
             Assert.IsTrue(compare(v3c, new Vector3(-46.93855f, 17.46871f, 0)));
         }
@@ -489,8 +478,8 @@ namespace UnitTestProject
                                       55, 44, 99, 1);
 
             Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 0);
-            Vector4 v4c = Vector4.VectorMatrixtransform(m4b, v4a);
-            
+
+            Vector4 v4c = m4b * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(13.5f, -48.23f, -54, 0)));
         }
 
@@ -503,8 +492,8 @@ namespace UnitTestProject
             m4c.m13 = 55; m4c.m14 = 44; m4c.m15 = 99; m4c.m16 = 1;
 
             Vector4 v4a = new Vector4(13.5f, -48.23f, -54, 0);
-            Vector4 v4c = Vector4.VectorMatrixtransform(m4c, v4a);
 
+            Vector4 v4c = m4c * v4a;
             Assert.IsTrue(compare(v4c, new Vector4(-46.9385452f, 17.46871f, -54, 0)));
         }
 

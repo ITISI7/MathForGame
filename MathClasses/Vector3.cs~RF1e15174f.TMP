@@ -80,10 +80,9 @@ namespace MathClasses
         public static Vector3 Normalise(Vector3 vec)
         {
             Vector3 retVal = new Vector3();
-            float m = Magnitude(vec);
-            retVal.x = vec.x /= m;
-            retVal.y = vec.y /= m;
-            retVal.y = vec.z /= m;
+            retVal.x = vec.x / vec.x;
+            retVal.y = vec.y / vec.y;
+            retVal.y = vec.z / vec.z;
             return retVal;
 
         }
@@ -102,9 +101,9 @@ namespace MathClasses
         public static Vector3 VectorMatrixtransform(Matrix3 matrix, Vector3 vector)
         {
             Vector3 retVal = new Vector3();
-            retVal.x = matrix.m1 * vector.x + matrix.m4 * vector.y + matrix.m7 * vector.z;
-            retVal.y = matrix.m2 * vector.x + matrix.m5 * vector.y + matrix.m8 * vector.z;
-            retVal.z = matrix.m3 * vector.x + matrix.m6 * vector.y + matrix.m9 * vector.z;
+            retVal.x = matrix.m1 * vector.x + matrix.m2 * vector.y + matrix.m3 * vector.z;
+            retVal.y = matrix.m4 * vector.x + matrix.m5 * vector.y + matrix.m6 * vector.z;
+            retVal.z = matrix.m7 * vector.x + matrix.m8 * vector.y + matrix.m9 * vector.z;
 
 
             return retVal;

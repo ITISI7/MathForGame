@@ -130,7 +130,7 @@ namespace MathClasses
 
             m5 = 0;
             m6 = (float)Math.Cos(xRadians);
-            m7 = (float)Math.Sin(xRadians);
+            m7 = (float)-Math.Sin(xRadians);
             m8 = 0;
 
             m9 = 0;
@@ -157,7 +157,7 @@ namespace MathClasses
             m7 = 0;
             m8 = 0;
 
-            m9 = (float)Math.Sin(yRadians);
+            m9 = (float)-Math.Sin(yRadians);
             m10 = 0;
             m11 = (float)Math.Cos(yRadians);
             m12 = 0;
@@ -171,7 +171,7 @@ namespace MathClasses
         public void SetRotateZ(float zRadians)
         {
             m1 = (float)Math.Cos(zRadians);
-            m2 = (float)Math.Sin(zRadians);
+            m2 = (float)-Math.Sin(zRadians);
             m3 = 0;
             m4 = 0;
 

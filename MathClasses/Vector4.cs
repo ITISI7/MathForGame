@@ -53,7 +53,7 @@ namespace MathClasses
 
         public static Vector4 operator -(Vector4 lhs, Vector4 rhs)
         {
-            return new Vector4(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - lhs.w);
+            return new Vector4(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w);
         }
         public static Vector4 Scaling (Vector4 vec, float scale)
         {
@@ -84,10 +84,11 @@ namespace MathClasses
         public static Vector4 Normalise(Vector4 vec)
         {
             Vector4 retVal = new Vector4();
-            retVal.x = vec.x / vec.x;
-            retVal.y = vec.y / vec.y;
-            retVal.y = vec.z / vec.z;
-            retVal.w = vec.w / vec.w;
+            float m = Magnitude(vec);
+            retVal.x = vec.x /= m;
+            retVal.y = vec.y /= m;
+            retVal.y = vec.z /= m;
+            retVal.w = vec.w /= m;
             return retVal;
 
         }
@@ -95,10 +96,10 @@ namespace MathClasses
         public static Vector4 Cross(Vector4 lhs, Vector4 rhs)
         {
             return new Vector4(
-            lhs.z * rhs.w - lhs.w * rhs.z,
-            lhs.w * rhs.y - lhs.y * rhs.w,
-            lhs.x * rhs.z - lhs.z * rhs.x,
-            lhs.y * rhs.x - lhs.x * rhs.y);
+            lhs.y * rhs.z - lhs.z * rhs.y,
+            lhs.z * rhs.x - lhs.x * rhs.z,
+            lhs.x * rhs.y - lhs.y * rhs.x,
+            0);
 
 
 
@@ -112,10 +113,10 @@ namespace MathClasses
         public static Vector4 VectorMatrixtransform(Matrix4 matrix, Vector4 vector)
         {
             Vector4 retVal = new Vector4();
-            retVal.x = matrix.m1 * vector.x + matrix.m2 * vector.y + matrix.m3 * vector.z + matrix.m4 * vector.w;
-            retVal.y = matrix.m5 * vector.x + matrix.m6 * vector.y + matrix.m7 * vector.z + matrix.m8 * vector.w;
-            retVal.z = matrix.m9 * vector.x + matrix.m10 * vector.y + matrix.m11 * vector.z + matrix.m12 * vector.w;
-            retVal.w = matrix.m13 * vector.x + matrix.m14 * vector.y + matrix.m15 * vector.z + matrix.m16 * vector.w;
+            retVal.x = matrix.m1 * vector.x + matrix.m5 * vector.y + matrix.m9 * vector.z + matrix.m13 * vector.w;
+            retVal.y = matrix.m2 * vector.x + matrix.m6 * vector.y + matrix.m10 * vector.z + matrix.m14 * vector.w;
+            retVal.z = matrix.m3 * vector.x + matrix.m7 * vector.y + matrix.m11 * vector.z + matrix.m15 * vector.w;
+            retVal.w = matrix.m4 * vector.x + matrix.m8 * vector.y + matrix.m12 * vector.z + matrix.m16 * vector.w;
 
 
             return retVal;

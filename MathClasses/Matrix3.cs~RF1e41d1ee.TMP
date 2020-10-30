@@ -173,7 +173,6 @@ namespace MathClasses
 
             return retVal;
         }
-       
     }
 
 }
