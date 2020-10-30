@@ -204,14 +204,14 @@ namespace MathClasses
         public void rotateY(float yRadians)
         {
             Matrix4 rot = new Matrix4();
-            rot.SetRotateY(yRadians);
+            rot.setRotateY(yRadians);
 
             Set(this * rot);
         }
         public void rotateZ(float zRadians)
         {
             Matrix4 rot = new Matrix4();
-            rot.SetRotateZ(zRadians);
+            rot.setRotateZ(zRadians);
 
             Set(this * rot);
         }

@@ -1,0 +1,7 @@
+C:\Users\7319d\Desktop\MathForGame-master\MathClasses\obj\Debug\MathClasses.csprojAssemblyReference.cache
+C:\Users\7319d\Desktop\MathForGame-master\MathClasses\obj\Debug\MathClasses.csproj.CoreCompileInputs.cache
+C:\Users\7319d\Desktop\MathForGame-master\MathClasses\bin\Debug\MathClasses.exe.config
+C:\Users\7319d\Desktop\MathForGame-master\MathClasses\bin\Debug\MathClasses.exe
+C:\Users\7319d\Desktop\MathForGame-master\MathClasses\bin\Debug\MathClasses.pdb
+C:\Users\7319d\Desktop\MathForGame-master\MathClasses\obj\Debug\MathClasses.exe
+C:\Users\7319d\Desktop\MathForGame-master\MathClasses\obj\Debug\MathClasses.pdb
