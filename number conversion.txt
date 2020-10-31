@@ -1,0 +1,29 @@
+  convert decimal to binary
+     1: 1
+     2: 101010
+     3: 100000000
+     4: 100000000000000000000000000000000
+
+     convert binary to decimal 
+     1: 128
+     2: 170
+     3: 240
+     4: 204
+
+     adding binary
+     1: 1110
+     2: 10100
+     3: 1010
+     4: 1010
+     5: 1101
+     6: 0101
+     7: 100001
+     8: 100 remainder 1
+
+     In many places, numbers stored in computers are displayed as hexadecimal (base 16). What advantages do hex
+     numbers have over decimal and binary numbers respectively when displaying numbers stored in a computer?
+     
+     more storage in the bit
+
+     
+     
